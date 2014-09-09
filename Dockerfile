@@ -14,5 +14,5 @@ RUN git clone https://github.com/rapid7/metasploit-framework.git \
 	&& bundle install
 
 # TODO: Do some setup for dev env
-
-ENTRYPOINT ["/metasploit-framework/msfconsole"]
+WORKDIR /metasploit-framework
+CMD  ["/metasploit-framework/msfconsole"]
