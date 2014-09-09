@@ -1,5 +1,18 @@
-FROM pandrew/kali
+FROM ruby:1.9.3-p547
 
-MAINTAINER Paul Andrew Liljenberg "letters@paulnotcom.se"
+RUN apt-get update && apt-get -y install bison \
+	libbison-dev \
+	libpcap-dev \
+	libpcap0.8 \
+	libpcap0.8-dev \
+	postgresql-client-common
 
-RUN DEBIAN_FRONTED=noninteractive apt-get -y install metasploit
+# TODO: Needs bootstrapping of remote/linked database
+
+RUN git clone https://github.com/rapid7/metasploit-framework.git \
+	&& cd metasploit-framework \
+	&& bundle install
+
+# TODO: Do some setup for dev env
+
+ENTRYPOINT ["/metasploit-framework/msfconsole"]
