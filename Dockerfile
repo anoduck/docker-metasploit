@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -y install bison \
 
 # TODO: Needs bootstrapping of remote/linked database
 
-RUN git clone https://github.com/rapid7/metasploit-framework.git \
+RUN git clone --depth=1 https://github.com/rapid7/metasploit-framework.git \
 	&& cd metasploit-framework \
 	&& bundle install
 
