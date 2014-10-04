@@ -30,4 +30,5 @@ RUN git clone --depth=1 https://github.com/rapid7/metasploit-framework.git \
 # TODO: Do some setup for dev env
 ADD setup.sh /
 WORKDIR /metasploit-framework
+ADD pentest.rb /metasploit-framework/plugins/
 CMD  ["/setup.sh"]
