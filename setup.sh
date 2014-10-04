@@ -22,6 +22,13 @@ sh -c "echo 'production:
   port: 5432
   pool: 75
   timeout: 5' > /metasploit-framework/config/database.yml"
+else
+	echo "USAGE:"
+	echo "	1. Setup a database:"
+	echo "	   docker run -d --name=postgres postgres"
+	echo "	2. Link containers:"
+	echo "	   docker run -it --link postgres:db pandrew/metasploit"
+	exit 0
 fi
 
 /metasploit-framework/msfconsole
