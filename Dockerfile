@@ -1,4 +1,4 @@
-FROM ruby:1.9.3-p550
+FROM ruby:1.9.3-p551
 
 # Adds support for db_nmap
 ENV NMAP_VERSION 6.47
